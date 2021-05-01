@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+/** @jsxImportSource @emotion/react */
+import React from 'react';
+import {useLocation} from 'react-router-dom';
+import queryString from 'query-string';
+import { css } from '@emotion/react';
+import FetchForcast from './weather';
+
+const styles = css `
+    background-color: lightblue;
+`;
+
+function useQueryString() {
+  return queryString.parse(useLocation().search);
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div css={styles}>
+      <FetchForcast query={useQueryString().q}/>
     </div>
   );
 }
