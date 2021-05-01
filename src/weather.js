@@ -77,7 +77,7 @@ function Description(props){
         <div>
             <h3>Description: {props.description.description}</h3>
           <div>
-            <img css={styles} alt={"whut"} src={"https://openweathermap.org/img/wn/" + props.description.icon + "@2x.png"} />
+            <img css={styles} alt={"whut"} src={"http://openweathermap.org/img/wn/" + props.description.icon + "@2x.png"} />
           </div>
         </div>
     );
@@ -149,7 +149,7 @@ function FetchForcast({query}){
             setIsLoading(true);
             try {
                 const res = await fetch(
-                    `https://api.openweathermap.org/data/2.5/forecast?q=${inputQuery}&appid=bfb15fd71078ef4d76b0d6f45ac18275&units=imperial`,
+                    `http://api.openweathermap.org/data/2.5/forecast?q=${inputQuery}&appid=bfb15fd71078ef4d76b0d6f45ac18275&units=imperial`,
                     { signal: controller.signal }
                 );
                 responseBody = await res.json();
